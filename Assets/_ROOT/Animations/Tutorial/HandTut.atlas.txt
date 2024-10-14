@@ -1,0 +1,27 @@
+
+HandTut.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Arrow
+  rotate: false
+  xy: 252, 16
+  size: 107, 235
+  orig: 107, 235
+  offset: 0, 0
+  index: -1
+Circle
+  rotate: false
+  xy: 1, 1
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+Hand
+  rotate: false
+  xy: 360, 110
+  size: 105, 141
+  orig: 105, 141
+  offset: 0, 0
+  index: -1

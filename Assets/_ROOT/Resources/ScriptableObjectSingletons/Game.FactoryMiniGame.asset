@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1e1b59691357940bc70fb329bd53a6, type: 3}
+  m_Name: Game.FactoryMiniGame
+  m_EditorClassIdentifier: 
+  _configs:
+  - {fileID: 11400000, guid: 278b79fd3edc95249a8f70de2dba6b38, type: 2}
+  - {fileID: 11400000, guid: a9b15c5350f3ac64ea80804227ee11b9, type: 2}
+  - {fileID: 11400000, guid: 50d2fd784e5ee7040a4a79d0bed3d332, type: 2}
+  - {fileID: 11400000, guid: 8807abc6a4b497b408f2c5653ca8781d, type: 2}
+  - {fileID: 11400000, guid: 8dc4bc5b793000d4c820cf02f8aefe94, type: 2}
+  - {fileID: 11400000, guid: 43a797967392c5848899a361e82580aa, type: 2}
+  - {fileID: 11400000, guid: 3a8bbe4f28d777b43b2d491d58e9a8de, type: 2}
+  _easyObby: {fileID: 11400000, guid: 278b79fd3edc95249a8f70de2dba6b38, type: 2}
+  _theFloorIsLava: {fileID: 11400000, guid: a9b15c5350f3ac64ea80804227ee11b9, type: 2}
+  _colorBlock: {fileID: 11400000, guid: 43a797967392c5848899a361e82580aa, type: 2}
+  _bladeBall: {fileID: 11400000, guid: 8807abc6a4b497b408f2c5653ca8781d, type: 2}

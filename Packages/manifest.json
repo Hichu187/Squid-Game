@@ -1,11 +1,18 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.unity.addressables": "1.21.21",
+    "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.9.2",
+    "com.vertx.debugging": "https://github.com/vertxxyz/Vertx.Debugging.git",
+    "com.yasirkula.assetusagedetector": "https://github.com/yasirkula/UnityAssetUsageDetector.git",
+    "jp.setchi.fancyscrollview": "https://github.com/setchi/FancyScrollView.git#upm",
+    "l.unity.frameworks": "https://github.com/lazycoder71/l-framework.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
