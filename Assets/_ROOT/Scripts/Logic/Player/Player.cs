@@ -38,14 +38,6 @@ namespace Game
             _character.eventRevive += Character_EventRevive;
             _character.eventDie += Character_EventDie;
 
-            // Load player skin
-            //_character.rendererComp.LoadSkin(FactoryCharacter.GetSkinCurrent()).Forget();
-
-            /*            if (_character.GetComponent<BladeBall_Player>())
-                        {
-                            BladeBall_Player p = _character.GetComponent<BladeBall_Player>();
-                            p.Init();
-                        }*/
         }
 
         private void Update()

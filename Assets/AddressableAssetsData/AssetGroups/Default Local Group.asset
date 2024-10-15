@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: affe8a25b8214f74f96227134d370111
+  m_SerializeEntries:
+  - m_GUID: 76a19392e24a7aa46b67575633502e27
+    m_Address: Assets/_ROOT/Prefabs/RedLine-GreenLine/RedLineGreenLine_GUI_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0c4d49e3fe177c45b13ecd4a75aaf8f
+    m_Address: Assets/_ROOT/Prefabs/TheFloorIsLava/TheFloorIsLava_LevelSelection_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82496df5a1dd6d6468d5e2b246f9c3c2
+    m_Address: Assets/_ROOT/Prefabs/TheFloorIsLava/TheFloorIsLava_GUI_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed228b74e0ab15e438a959fb120b9f88
+    m_Address: Assets/_ROOT/Prefabs/Result/ResultReviveView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 299c48c740163f3409885a2cac709eeb
+    m_Address: Assets/_ROOT/Prefabs/Result/ResultWinView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c6bc03bfb7627a44a94be207f592ccf
+    m_Address: Assets/_ROOT/Prefabs/Result/ResultLoseView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 228178fc2bc9cb84e95cb2190ab2285d
+    m_Address: Assets/_ROOT/Prefabs/ColorBlock/ColorBlock_GUI_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a6464dacd8be1d947956e95c20b63ea1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2e2ff3566d9ae074099b53b97e1430bf, type: 2}
+    - {fileID: 11400000, guid: f197099dcfd009d47aa0944a21784ed0, type: 2}

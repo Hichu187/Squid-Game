@@ -11,7 +11,7 @@ namespace Game
         [Title("Reference")]
         [SerializeField] private TextMeshProUGUI _txtTitle;
         [SerializeField] private Image _imgThumbnail;
-        [SerializeField] private TextMeshProUGUI _txtOnline;
+        [SerializeField] private TextMeshProUGUI _txtOnLight;
         [SerializeField] private GameObject _objMostPlayed;
         [SerializeField] private GameObject _objComingSoon;
         [SerializeField] private GameObject _objStatus;
@@ -51,7 +51,7 @@ namespace Game
 
             _objMostPlayed.SetActive(config.isMostPlayed);
 
-            _txtOnline.text = $"{UtilsNumber.Format(config.isMostPlayed ? Random.Range(1000, 5000) : Random.Range(100, 900))} Online";
+            _txtOnLight.text = $"{UtilsNumber.Format(config.isMostPlayed ? Random.Range(1000, 5000) : Random.Range(100, 900))} OnLight";
 
             _objComingSoon.SetActive(config.isComingSoon);
 
