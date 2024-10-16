@@ -42,7 +42,7 @@ namespace Game
 
         }
 
-        private async UniTask Lose()
+        public async UniTaskVoid SpawnResultLose()
         {
             if (_isFinished)
                 return;

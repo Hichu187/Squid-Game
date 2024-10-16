@@ -42,12 +42,14 @@ namespace Game
         private void Awake()
         {
             StaticBus<Event_TurOfWar_Constructed>.Subscribe(StartFight);
+            StaticBus<Event_Player_Die>.Subscribe(Lose);
 
         }
 
         private void OnDestroy()
         {
             StaticBus<Event_TurOfWar_Constructed>.Unsubscribe(StartFight);
+            StaticBus<Event_Player_Die>.Unsubscribe(Lose);
         }
 
         private void Start()
@@ -150,7 +152,7 @@ namespace Game
             {
                 _progress.fillAmount -= fillSpeed *1.5f * Time.deltaTime;
 
-                if (_progress.fillAmount <= 0) Lose();
+                if (_progress.fillAmount <= 0) SetFalling();
             }
 
             _progress.fillAmount = Mathf.Clamp(_progress.fillAmount, 0f, 1f);
@@ -168,12 +170,18 @@ namespace Game
             _isTugOfWar = false;
             _master.player.character.animator.SetVelocityZ(0);
             _master.player.character.animator.PlayWin();
+            _master.SpawnResultView().Forget();
         }
 
-        void Lose()
+        void SetFalling()
         {
             _isTugOfWar = false;
             _master.player.character.animator.SetJumping(true);
+        }
+
+        void Lose(Event_Player_Die e)
+        {
+            _master.SpawnResultLose().Forget();
         }
     }
 }

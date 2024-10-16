@@ -605,12 +605,12 @@ MonoBehaviour:
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   _viewResultWin:
-    m_AssetGUID: 
+    m_AssetGUID: 299c48c740163f3409885a2cac709eeb
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   _viewResultLose:
-    m_AssetGUID: 
+    m_AssetGUID: 6c6bc03bfb7627a44a94be207f592ccf
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
