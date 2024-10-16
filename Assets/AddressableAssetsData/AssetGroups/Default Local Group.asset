@@ -52,6 +52,151 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c86f838e1da144a499f8f362736cb3e4
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d352aa92b157f214e8f3697881928deb
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_6.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbd6fa5af38e66d468047544760e97e5
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2b77fc4e78fd1c48964fe0adf00f577
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_14.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b96790e9302b1d42a6d1d43c29d2b87
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_12.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 479c8661136967045b3b6dbd86c9fb66
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_7.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5ce88de40ca5d14c91c3b5d6c7b3b72
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_10.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d17523495592a0b4f899b170e20199c5
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_8.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3f1091047fe12f4c833ac6dd7d6162a
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_13.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ac9b7844b202ab4d84003b3e9154f1f
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15cdd33129e455844a883648ae0454dd
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba36185b5d55ccb458bac78b7c1af990
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_9.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 299e8f432d197644d9933c6a53a72296
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_5.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1893a21138234f149b4d2e062ee4220f
+    m_Address: Assets/_ROOT/Configs/CharacterSkin/Character_SkinConfig_11.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea1582ab69e83064982f730204c1cf5c
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97a4cda0ac84d19408661fa74ed8a5e0
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f6605d8a811e974e8dbb576e2eefc42
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e07c317470b8ce746bfcb1bbd099d704
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31b47e3371af5f647a02b8c84eab9929
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 067475126421b4645bbb9840773748da
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e5594c7b7f40164e9eb08508e0f0b36
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8496c11696e58b4589bda6e3018f88e
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8533e476ceaf2a045a40646f4ed5e5f3
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f57a450ca56da2349933db8abc0cec51
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8ec5c484d8932f41b32e1e9ebd77393
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b892905edff276e4ba55ef77ec948dca
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_11.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9519cc84a70e7df438b806d467ea72c9
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_13.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d374e2fabfe48544e9986143d8e48b6c
+    m_Address: Assets/_ROOT/Prefabs/Character/Skin/Character_Skin_14.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4841bf6e9fcdce443891a242e5e2f0d0
+    m_Address: Assets/_ROOT/Prefabs/TugOfWar/TugOfWar_GUI_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a6464dacd8be1d947956e95c20b63ea1, type: 2}
   m_SchemaSet:

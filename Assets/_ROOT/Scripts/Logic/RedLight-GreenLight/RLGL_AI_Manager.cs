@@ -30,10 +30,14 @@ namespace Game
 
                 Vector3 position = Random.insideUnitSphere * _randomPositionRadius;
                 position.y = 0f;
+                position.z = 0f;
 
-                ai.character.Revive(position, Quaternion.LookRotation(position.normalized, Vector3.up));
+                ai.character.Revive(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
 
                 //ai.gameObject.AddComponent<ColorBlock_AI_Character>().Construct(i * 2);
+
+                ai.gameObject.AddComponent<RLGL_AI>().Construct(i * 2);
+
 
                 float idleDuration = _idleDurationRange.RandomWithin();
 

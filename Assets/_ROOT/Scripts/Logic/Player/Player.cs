@@ -38,6 +38,7 @@ namespace Game
             _character.eventRevive += Character_EventRevive;
             _character.eventDie += Character_EventDie;
 
+            _character.rendererComp.LoadSkin(FactoryCharacter.GetSkinCurrent()).Forget();
         }
 
         private void Update()
