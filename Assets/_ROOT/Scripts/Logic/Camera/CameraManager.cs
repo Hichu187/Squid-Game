@@ -50,5 +50,15 @@ namespace Game
             _cineFreeLook.m_XAxis.m_InputAxisValue = input.x;
             _cineFreeLook.m_YAxis.m_InputAxisValue = input.y;
         }
+
+        public void DisableCamera()
+        {
+            _cineFreeLook.Priority = 0;
+        }
+
+        public void EnableCamera()
+        {
+            _cineFreeLook.Priority = 10;
+        }
     }
 }

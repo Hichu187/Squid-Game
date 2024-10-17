@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Kill
   - Ground
+  - Tool
   layers:
   - Default
   - TransparentFX
