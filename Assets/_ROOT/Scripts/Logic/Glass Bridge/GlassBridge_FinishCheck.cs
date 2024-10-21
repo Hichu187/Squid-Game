@@ -8,7 +8,7 @@ namespace Game
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && other.transform.parent.GetComponent<GlassBridge_Player>())
             {
                 if(other.transform.parent.GetComponent<GlassBridge_Player>().isComplete == false)
                 {

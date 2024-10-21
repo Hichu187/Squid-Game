@@ -11,6 +11,7 @@ namespace Game
         [SerializeField] Renderer renderer;
 
         [SerializeField] Material green;
+        public bool isBreak;
 
         [Button]
         public void SetCollider()
@@ -57,6 +58,7 @@ namespace Game
         public void Break()
         {
             renderer.gameObject.SetActive(false);
+            isBreak = true;
         }
     }
 }

@@ -23,9 +23,10 @@ namespace Game
         [SerializeField] Transform _line1;
         [SerializeField] Transform _line2;
 
-        [SerializeField] List<GameObject> line1Step;
-        [SerializeField] List<GameObject> line2Step;
-        [SerializeField] List<BridgePart> steps;
+        [HideInInspector][SerializeField] List<GameObject> line1Step;
+        [HideInInspector][SerializeField] List<GameObject> line2Step;
+        [HideInInspector] public List<BridgePart> steps;
+        [HideInInspector] public List<BridgePart> breaks;
 
         private void Awake()
         {
@@ -60,14 +61,16 @@ namespace Game
                 if (Random.value > 0.5f)
                 {
                     steps.Add(line1Step[i].GetComponent<BridgePart>());
+                    breaks.Add(line2Step[i].GetComponent<BridgePart>());
                 }
                 else
                 {
                     steps.Add(line2Step[i].GetComponent<BridgePart>());
+                    breaks.Add(line1Step[i].GetComponent<BridgePart>());
                 }
             }
 
-            _stopPosition.position = new Vector3(0, 0, steps[steps.Count - 1].transform.position.z + 5.45f);
+            _stopPosition.position = new Vector3(_stopPosition.position.x, _stopPosition.position.y, steps[steps.Count - 1].transform.position.z + 5.45f);
 
             if(steps != null)
             {
