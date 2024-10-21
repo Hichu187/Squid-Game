@@ -164,7 +164,6 @@ namespace Game
             _master.player.character.transform.position = playerPosition;
             _master.player.character.animator.SetVelocityZ(0.3f);
         }
-
         void Win()
         {
             _isTugOfWar = false;
@@ -172,13 +171,11 @@ namespace Game
             _master.player.character.animator.PlayWin();
             _master.SpawnResultView().Forget();
         }
-
         void SetFalling()
         {
             _isTugOfWar = false;
             _master.player.character.animator.SetJumping(true);
         }
-
         void Lose(Event_Player_Die e)
         {
             _master.SpawnResultLose().Forget();
