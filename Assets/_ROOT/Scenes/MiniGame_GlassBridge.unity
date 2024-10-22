@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &519184824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519184825}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519184825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519184824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092283753}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &643175391
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -235,11 +266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3031539693801234fa4b83222289c951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameTime: 40
+  _gameTime: 60
   _prepareTime: 3
-  _step: 9
+  _step: 7
   _startPosition: {fileID: 1036217775}
-  _stopPosition: {fileID: 2092283753}
+  stopPosition: {fileID: 2092283753}
   _wall: {fileID: 1158410486}
   _stepPrefab: {fileID: 7195205366167849687, guid: 0ff998d076e61904ab0905eee8c1295f, type: 3}
   _line1: {fileID: 1796205672}
@@ -290,8 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefab: {fileID: 8125306918014190504, guid: 47682e7620ee29b41a05cc0e657ae15d, type: 3}
   count: 10
-  _idleDurationRange: {x: 2, y: 0.5}
-  _randomPositionRadius: 1
+  _idleDurationRange: {x: 1, y: 0.5}
+  _randomPositionRadius: 3
 --- !u!1 &926976636 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3770498084893303503, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
@@ -1910,6 +1941,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1225527301}
+  - {fileID: 519184825}
   m_Father: {fileID: 1802181870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2092283754

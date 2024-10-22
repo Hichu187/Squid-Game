@@ -11,6 +11,7 @@ namespace Game
         public int id;
         private GlassBridge_Gameplay _gameplay;
         [SerializeField] private int _surviveCount;
+        [SerializeField] private bool _isStart;
         [SerializeField] private bool _isSurvive;
         private AI _ai;
         [SerializeField] private GameObject _aim;
@@ -21,7 +22,8 @@ namespace Game
         {
             _ai = GetComponent<AI>();
             _gameplay = FindObjectOfType<GlassBridge_Gameplay>();
-
+            _ai.character.GetComponent<CharacterFallDetector>().enabled = false;
+            _isSurvive = true;
         }
 
         private void OnDestroy()
@@ -30,29 +32,59 @@ namespace Game
 
         private async void Start()
         {
+            _ai.eventChaseComplete += AI_EventChaseComplete;
+            _ai.eventIdleComplete += AI_EventIdleComplete;
+
             await UniTask.WaitForSeconds(Random.Range(0.5f, 1.5f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
-            _ai.Chase(_ai.character.transform.position + new Vector3(Random.Range(-5, 5), 0, Random.Range(-5, 2)));
+            _ai.Chase(_ai.character.transform.position + new Vector3(Random.Range(-3, 3), 0, Random.Range(-5, 1)));
 
-            _isSurvive = true;
+        }
+
+        private void AI_EventIdleComplete()
+        {
+            if (!_isStart)
+            {
+                _ai.Chase(_ai.character.transform.position + new Vector3(Random.Range(-2, 2), 0, Random.Range(-1, 1)));
+            }
+        }
+
+        private void AI_EventChaseComplete()
+        {
+            _ai.Idle();
         }
         public IEnumerator JumpRoutine()
         {
             while (true)
             {
-                if (_isSurvive)
+                if (_step >= _gameplay.steps.Count)
                 {
-                    _surviveCount--;
+                    if (!_isSurvive) break;
+                    else { _ai.Chase(_gameplay.stopPosition.transform.GetChild(1)); break; }
+                }
 
-                    if (_step < _gameplay.steps.Count) _ai.Chase(_gameplay.steps[_step].transform);
+                var currentBreak = _gameplay.breaks[_step];
+                var currentStep = _gameplay.steps[_step];
 
-                    _step++;
-                    if (_surviveCount <= 0) { _isSurvive = false; }
+                if (!currentBreak.isBreak)
+                {
+                    float r = Random.value;
+                    if (r >= 0.5f)
+                    {
+                        _ai.Chase(currentStep.transform);
+                    }
+                    else
+                    {
+                        _ai.Chase(currentBreak.transform);
+                        StartCoroutine(Dead());
+
+                    }
                 }
                 else
                 {
-                    if (_step < _gameplay.breaks.Count) _ai.Chase(_gameplay.breaks[_step].transform);
+                    _ai.Chase(currentStep.transform);
                 }
+                _step++;
 
                 float waitTime = Random.Range(1f, 4f);
                 yield return new WaitForSeconds(waitTime);
@@ -61,13 +93,21 @@ namespace Game
 
         public void Jump()
         {
+            if (!_isStart)
+            {
+                _isStart = true;
+            }
+
             StartCoroutine(JumpRoutine());
         }
 
         IEnumerator Dead()
         {
-            StopAllCoroutines();
-            yield return new WaitForSeconds(1.5f);
+            _isSurvive = false;
+            yield return new WaitForSeconds(2f);
+            _aim.gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(2f);
             _ai.character.Kill();
             _aim.gameObject.SetActive(false);
 

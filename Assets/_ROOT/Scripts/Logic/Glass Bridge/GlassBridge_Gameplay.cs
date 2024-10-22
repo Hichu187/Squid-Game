@@ -16,7 +16,7 @@ namespace Game
         [SerializeField] private float _prepareTime;
         [SerializeField] private int _step;
         [SerializeField] Transform _startPosition;
-        [SerializeField] Transform _stopPosition;
+        public Transform stopPosition;
         [SerializeField] Transform _wall;
 
         [SerializeField] private GameObject _stepPrefab;
@@ -70,7 +70,7 @@ namespace Game
                 }
             }
 
-            _stopPosition.position = new Vector3(_stopPosition.position.x, _stopPosition.position.y, steps[steps.Count - 1].transform.position.z + 5.45f);
+            stopPosition.position = new Vector3(stopPosition.position.x, stopPosition.position.y, steps[steps.Count - 1].transform.position.z + 5.45f);
 
             if(steps != null)
             {
