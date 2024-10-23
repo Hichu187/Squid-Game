@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using LFramework;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,32 +8,37 @@ using UnityEngine.AddressableAssets;
 
 namespace Game
 {
-    public class GlassBridge_Master : MonoBehaviour
+    public class Dalgona_Master : MonoBehaviour
     {
+        [Title("Reference")]
         [SerializeField] private AssetReferenceGameObject _viewGUI;
         [SerializeField] private AssetReferenceGameObject _viewResultWin;
         [SerializeField] private AssetReferenceGameObject _viewResultLose;
         [SerializeField] private Player _player;
+        [SerializeField] private Camera _mainCamera;
 
-        private GlassBridge_GUI _gui;
+        private Dalgona_GUI _gui;
+
+        private int _characterFinishCount = 0;
         private bool _isFinished = false;
         private bool _isInitialized = false;
-        public GlassBridge_GUI gui { get { return _gui; } }
+
+        public Dalgona_GUI gui { get { return _gui; } }
         public Player player { get { return _player; } }
+        public Camera mainCamera { get { return _mainCamera; } }
 
         private void Start()
         {
             ConstructStart().Forget();
-            //player.gui.gameObject.SetActive(false);
         }
 
         private async UniTaskVoid ConstructStart()
         {
             View view = await ViewHelper.PushAsync(_viewGUI);
 
-            _gui = view.GetComponent<GlassBridge_GUI>();
+            _gui = view.GetComponent<Dalgona_GUI>();
 
-            StaticBus<Event_GlassBridge_Constructed>.Post(null);
+            StaticBus<Event_Dalgona_Constructed>.Post(null);
         }
 
         public async UniTaskVoid SpawnResultView()
@@ -40,6 +46,7 @@ namespace Game
             await UniTask.WaitForSeconds(1f);
 
             View view = await ViewHelper.PushAsync(_viewResultWin);
+
         }
 
         public async UniTaskVoid SpawnResultLose()

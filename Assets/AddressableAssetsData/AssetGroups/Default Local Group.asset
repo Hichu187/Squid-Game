@@ -217,6 +217,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e23427e36369a6c4a9ea2468a4feba62
+    m_Address: Assets/_ROOT/Prefabs/Dalgona/Dalgona_GUI_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a6464dacd8be1d947956e95c20b63ea1, type: 2}
   m_SchemaSet:
