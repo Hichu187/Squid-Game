@@ -1,3 +1,5 @@
+using LFramework;
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +8,71 @@ namespace Game
 {
     public class LightOff_Gameplay : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        private LightOff_Master _master;
+
+        [Title("Reference")]
+        [SerializeField] private float _gameTime;
+        [SerializeField] private float _prepareTime;
+
+
+        private void Awake()
         {
-        
+            StaticBus<Event_LightOff_Constructed>.Subscribe(Constructed);
+
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnDestroy()
         {
-        
+            StaticBus<Event_LightOff_Constructed>.Unsubscribe(Constructed);
         }
+        void Start()
+        {
+            _master = GetComponent<LightOff_Master>();
+        }
+        void Constructed(Event_LightOff_Constructed e)
+        {
+            StartCoroutine(PrepareStart());
+        }
+        IEnumerator PrepareStart()
+        {
+            float currentTime = _prepareTime;
+
+            while (currentTime > 0)
+            {
+                _master.gui.announcement.PushMesseage($"Game start in {Mathf.CeilToInt(currentTime)} second").Forget();
+
+                currentTime -= Time.deltaTime;
+
+                yield return null;
+            }
+            _master.gui.announcement.PushMesseage($"Game start !!!").Forget();
+
+            StaticBus<Event_LightOff_Start>.Post(null);
+
+            StartCoroutine(GameTimeCountDown());
+        }
+        IEnumerator GameTimeCountDown()
+        {
+            float currentTime = _gameTime;
+
+            while (currentTime > 0)
+            {
+                _master.gui.gameTime.PushMesseage($"{Mathf.CeilToInt(currentTime)}").Forget();
+
+                currentTime -= Time.deltaTime;
+
+                yield return null;
+            }
+            _master.gui.gameTime.PushMesseage($"Finish !!!").Forget();
+
+            _master.SpawnResultView().Forget();
+        }
+
+        void Lose(Event_Player_Die e)
+        {
+            _master.SpawnResultLose().Forget();
+            StopAllCoroutines();
+        }
+
     }
 }

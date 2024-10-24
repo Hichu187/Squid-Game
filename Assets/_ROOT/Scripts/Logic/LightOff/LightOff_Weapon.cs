@@ -6,6 +6,7 @@ namespace Game
 {
     public class LightOff_Weapon : MonoBehaviour
     {
-
+        public int id;
+        public Weapon type;
     }
 }

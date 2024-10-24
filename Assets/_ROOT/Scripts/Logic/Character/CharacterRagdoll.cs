@@ -56,5 +56,13 @@ namespace Game
                 rigidbodies[i].GetComponent<Collider>().enabled = false;
             }
         }
+
+        public void DealDamage()
+        {
+            if (transform.GetComponentInParent<LightOff_Player>())
+            {
+                transform.GetComponentInParent<LightOff_Player>().DealDamage();
+            }
+        }
     }
 }

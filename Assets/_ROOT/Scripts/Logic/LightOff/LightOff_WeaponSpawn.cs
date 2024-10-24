@@ -6,6 +6,7 @@ namespace Game
 {
     public class LightOff_WeaponSpawn : MonoBehaviour
     {
+        public LightOff_Weapon curWeapon;
         [SerializeField] int id;
         [SerializeField] RuntimeAnimatorController _ac;
 
@@ -20,6 +21,7 @@ namespace Game
             }
 
             weapon[id].SetActive(true);
+            curWeapon = weapon[id].GetComponent<LightOff_Weapon>();
         }
 
         void OnTriggerEnter(Collider other)
@@ -30,7 +32,7 @@ namespace Game
 
                 int tmp = p.weaponId;
 
-                p.SetAnimator(_ac, id);
+                p.SetAnimator(_ac, id, curWeapon.type);
 
                 if (tmp == -1)
                 {
@@ -46,6 +48,8 @@ namespace Game
                     }
 
                     weapon[id].SetActive(true);
+
+                    curWeapon = weapon[id].GetComponent<LightOff_Weapon>();
                 }
 
 

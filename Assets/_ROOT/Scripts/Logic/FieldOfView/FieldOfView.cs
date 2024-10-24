@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    private Player _player;
+
     public float radius;
     [Range(0, 360)]
     public float angle;
@@ -17,15 +19,17 @@ public class FieldOfView : MonoBehaviour
 
     public bool canSeeTarget;
 
+    public List<Transform> visibleTargets = new List<Transform>();
     private void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
+        _player = playerRef.GetComponentInParent<Player>();
         StartCoroutine(FOVRoutine());
     }
 
     private IEnumerator FOVRoutine()
     {
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
+        WaitForSeconds wait = new WaitForSeconds(0.15f);
 
         while (true)
         {
@@ -36,30 +40,36 @@ public class FieldOfView : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
+        visibleTargets.Clear();
+
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)
         {
-            Transform target = rangeChecks[0].transform;
-            Vector3 directionToTarget = (target.position - transform.position).normalized;
-
-            if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+            foreach (Collider col in rangeChecks)
             {
-                float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                Transform target = col.transform;
+                Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                 {
-                    canSeeTarget = true;
+                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                    GetComponent<CharacterAnimator>().PlayBlock();
+                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                    {
+                        visibleTargets.Add(target.parent.transform);
+                    }
                 }
-                else
-                    canSeeTarget = false;
             }
-            else
-                canSeeTarget = false;
+
+            canSeeTarget = visibleTargets.Count > 0;
+
+            _player.character.animator.PlayBlock();
         }
-        else if (canSeeTarget)
+        else
+        {
             canSeeTarget = false;
+        }
+
     }
 }
