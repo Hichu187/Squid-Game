@@ -26,9 +26,9 @@ namespace Game
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && other.transform.parent.GetComponent<LightOff_Player>())
+            if (other.CompareTag("Player") && other.transform.GetComponent<LightOff_Player>())
             {
-                LightOff_Player p = other.transform.parent.GetComponent<LightOff_Player>();
+                LightOff_Player p = other.transform.GetComponent<LightOff_Player>();
 
                 int tmp = p.weaponId;
 
@@ -51,9 +51,36 @@ namespace Game
 
                     curWeapon = weapon[id].GetComponent<LightOff_Weapon>();
                 }
-
-
             }
+
+            if(other.CompareTag("Player") && other.transform.GetComponent<LightOff_AI>())
+            {
+                LightOff_AI p = other.transform.GetComponent<LightOff_AI>();
+
+                int tmp = p.weaponId;
+
+                p.TakeWeapon(_ac, id, curWeapon.type);
+
+                if (tmp == -1)
+                {
+                    this.gameObject.SetActive(false);
+                }
+                else
+                {
+                    id = tmp;
+
+                    foreach (var w in weapon)
+                    {
+                        w.gameObject.SetActive(false);
+                    }
+
+                    weapon[id].SetActive(true);
+
+                    curWeapon = weapon[id].GetComponent<LightOff_Weapon>();
+                }
+            }
+
+            
         }
     }
 }

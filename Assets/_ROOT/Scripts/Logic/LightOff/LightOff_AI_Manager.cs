@@ -19,7 +19,6 @@ namespace Game
         private void Awake()
         {
             SpawnAI();
-
         }
 
         private void OnDestroy()
@@ -41,14 +40,17 @@ namespace Game
             {
                 AI ai = _prefab.Create().GetComponent<AI>();
 
+                ai.gameObject.AddComponent<AIFollowWaypoint>();
+
                 Vector3 position = Random.insideUnitSphere * _randomPositionRadius;
+
                 position.y = 0f;
-                position.z = 0f;
 
                 ai.character.Revive(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
 
+                Character character = ai.transform.GetChild(0).GetComponent<Character>();
 
-                ai.gameObject.AddComponent<LightOff_AI>().Construct(i);
+                character.gameObject.AddComponent<LightOff_AI>().Construct(i);
 
                 float idleDuration = _idleDurationRange.RandomWithin();
 
@@ -58,4 +60,6 @@ namespace Game
             }
         }
     }
+
+    public enum LightOff_AIType {Normal, Random, Target}
 }

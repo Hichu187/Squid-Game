@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    private Player _player;
+    private Character _char;
 
     public float radius;
     [Range(0, 360)]
@@ -22,14 +22,14 @@ public class FieldOfView : MonoBehaviour
     public List<Transform> visibleTargets = new List<Transform>();
     private void Start()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        _player = playerRef.GetComponentInParent<Player>();
+        //playerRef = GameObject.FindGameObjectWithTag("Player");
+        _char = GetComponent<Character>();
         StartCoroutine(FOVRoutine());
     }
 
     private IEnumerator FOVRoutine()
     {
-        WaitForSeconds wait = new WaitForSeconds(0.15f);
+        WaitForSeconds wait = new WaitForSeconds(0.25f);
 
         while (true)
         {
@@ -44,27 +44,30 @@ public class FieldOfView : MonoBehaviour
 
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
-        if (rangeChecks.Length != 0)
+        if (rangeChecks.Length > 1)
         {
             foreach (Collider col in rangeChecks)
             {
-                Transform target = col.transform;
-                Vector3 directionToTarget = (target.position - transform.position).normalized;
-
-                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+                if (col.gameObject != gameObject)
                 {
-                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+                    Transform target = col.transform;
+                    Vector3 directionToTarget = (target.position - transform.position).normalized;
 
-                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                    if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                     {
-                        visibleTargets.Add(target.parent.transform);
+                        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+                        if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                        {
+                            visibleTargets.Add(target.transform);
+                        }
                     }
                 }
             }
 
             canSeeTarget = visibleTargets.Count > 0;
 
-            _player.character.animator.PlayBlock();
+            _char.animator.PlayBlock();
         }
         else
         {

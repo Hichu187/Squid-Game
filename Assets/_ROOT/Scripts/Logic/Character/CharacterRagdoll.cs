@@ -63,6 +63,10 @@ namespace Game
             {
                 transform.GetComponentInParent<LightOff_Player>().DealDamage();
             }
+            else if (transform.GetComponentInParent<LightOff_AI>())
+            {
+                transform.GetComponentInParent<LightOff_AI>().DealDamage();
+            }
         }
     }
 }

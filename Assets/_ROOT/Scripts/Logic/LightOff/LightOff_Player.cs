@@ -9,6 +9,10 @@ namespace Game
         private Player _player;
         public int weaponId;
 
+        int hp = 5;
+        [SerializeField] int dmg = 1;
+        [SerializeField] private int curHp;
+        [SerializeField] UIHealthbar healthbar;
         [SerializeField] private LightOff_HandWeapon weapon;
         [SerializeField] private FieldOfView fov;
 
@@ -16,7 +20,10 @@ namespace Game
 
         private void Start()
         {
-            _player = GetComponent<Player>();
+            _player = transform.parent.GetComponent<Player>();
+            curHp = hp;
+            healthbar.InitHealthBar(curHp);
+
         }
         public void SetAnimator(RuntimeAnimatorController _animator, int id, Weapon type)
         {
@@ -50,7 +57,7 @@ namespace Game
                     break;
                 case Weapon.ForwardRange:
                     f.radius = 3;
-                    f.angle = 30f;
+                    f.angle = 45f;
                     break;
             }
         }
@@ -63,10 +70,27 @@ namespace Game
 
         public void DealDamage()
         {
-            Debug.Log(1);
             foreach (var ai in fov.visibleTargets)
             {
-                ai.GetComponent<LightOff_AI>().TakeDamage(1);
+                ai.GetComponent<LightOff_AI>().TakeDamage(dmg);
+            }
+        }
+        public void TakeDamage(int damage)
+        {
+            curHp -= damage;
+
+            if (!healthbar.gameObject.activeSelf)
+            {
+                healthbar.gameObject.SetActive(true);
+            }
+
+            healthbar.UpdateHealthBar(curHp);
+
+            if (curHp <= 0)
+            {
+                _player.character.Kill();
+
+                healthbar.gameObject.SetActive(false);
             }
         }
     }

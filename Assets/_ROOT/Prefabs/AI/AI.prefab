@@ -131,6 +131,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 446012672372857745, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
     - target: {fileID: 2410093323937706868, guid: 528b7b94e0950a34c9ffc976b3089539, type: 3}
+      propertyPath: _stableMoveSpeedMax
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410093323937706868, guid: 528b7b94e0950a34c9ffc976b3089539, type: 3}
       propertyPath: _jumpPreGroundingGraceTime
       value: 0
       objectReference: {fileID: 0}

@@ -14,6 +14,8 @@ namespace Game
         [SerializeField] private float _gameTime;
         [SerializeField] private float _prepareTime;
 
+        [SerializeField] GameObject _weaponBase;
+
 
         private void Awake()
         {
@@ -49,6 +51,8 @@ namespace Game
 
             StaticBus<Event_LightOff_Start>.Post(null);
 
+            _weaponBase.gameObject.SetActive(true);
+
             StartCoroutine(GameTimeCountDown());
         }
         IEnumerator GameTimeCountDown()
@@ -67,7 +71,6 @@ namespace Game
 
             _master.SpawnResultView().Forget();
         }
-
         void Lose(Event_Player_Die e)
         {
             _master.SpawnResultLose().Forget();
