@@ -39,6 +39,7 @@ namespace Game
 
         private void GreenLight(Event_RedLightGreenLight_GreenLight e)
         {
+            if (_goal) return;
             _ai.Chase(_ai.character.transform.position + new Vector3(Random.Range(-3, 3), 0, Random.Range(17, 30)));
         }
 
