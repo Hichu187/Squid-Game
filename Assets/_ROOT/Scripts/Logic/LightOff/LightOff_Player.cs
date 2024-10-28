@@ -62,13 +62,11 @@ namespace Game
                     break;
             }
         }
-
         public void Attack()
         {
             _player.character.animator.PlayBlock();
 
         }
-
         public void DealDamage()
         {
 
@@ -95,7 +93,6 @@ namespace Game
                 healthbar.gameObject.SetActive(false);
             }
         }
-
         public void Win() 
         {
             _player.character.animator.SetAnimator(baseAnimator);
