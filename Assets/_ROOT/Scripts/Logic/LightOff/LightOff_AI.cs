@@ -27,29 +27,35 @@ namespace Game
         [SerializeField] private LightOff_HandWeapon weapon;
         public int weaponId = -1;
         private Weapon curType;
+
+        public RuntimeAnimatorController baseAnimator;
         private void Awake()
         {
             _ai = transform.parent.GetComponent<AI>();
-            
+
             healthbar = transform.GetComponentInChildren<UIHealthbar>();
             healthbar.gameObject.SetActive(false);
             healthbar.InitHealthBar(hp);
             curHp = hp;
 
             _player = FindObjectOfType<LightOff_Player>();
-        
+
+            StaticBus<Event_LightOff_Win>.Subscribe(PlayerWin);
+            StaticBus<Event_Player_Die>.Subscribe(PlayerLose);
+
         }
 
         private void OnDestroy()
         {
-
+            StaticBus<Event_LightOff_Win>.Unsubscribe(PlayerWin);
+            StaticBus<Event_Player_Die>.Unsubscribe(PlayerLose);
         }
 
         [Button]
         public void TakeWeapon(RuntimeAnimatorController _animator, int id, Weapon type)
         {
-            SetUpVision(_animator,id,type);
-
+            _ai.GetComponent<AIFollowWaypoint>().isCombat = true;
+            SetUpVision(_animator, id, type);
             ChangeBehavior();
         }
 
@@ -59,6 +65,7 @@ namespace Game
             {
                 weapon = transform.GetComponentInChildren<LightOff_HandWeapon>();
             }
+
             GetComponent<Character>().animator.SetAnimator(_animator);
             weaponId = id;
 
@@ -66,7 +73,7 @@ namespace Game
 
             curType = type;
 
-            fov =  gameObject.AddComponent<FieldOfView>();
+            fov = gameObject.AddComponent<FieldOfView>();
 
             fov.playerRef = this.gameObject;
             fov.targetMask = (1 << 3);
@@ -90,25 +97,33 @@ namespace Game
 
         void ChangeBehavior()
         {
-            switch( _aiType)
+            switch (_aiType)
             {
                 case LightOff_AIType.Normal:
                     break;
-
                 case LightOff_AIType.Random:
                     break;
                 case LightOff_AIType.Target:
-                    _ai.gameObject.RemoveComponent<AIFollowWaypoint>();
-                    _ai.StopAllCoroutines();
-                    _ai.Chase(_player.transform);
+                    _ai.GetComponent<AIFollowWaypoint>().isCombat = true;
+                    StartCoroutine(AITargetPlayer());
                     break;
             }
         }
 
+        IEnumerator AITargetPlayer()
+        {
+            while (true)
+            {
+                _ai.Chase(_player.transform);
+                yield return new WaitForSeconds(Random.Range(3, 5));
+
+                _ai.Stop();
+                yield return new WaitForSeconds(Random.Range(4, 6));
+            }
+
+        }
         public void DealDamage()
         {
-            Debug.Log(gameObject.name + " slash");
-
             foreach (var ai in fov.visibleTargets)
             {
                 if (ai.GetComponent<LightOff_AI>()) ai.GetComponent<LightOff_AI>().TakeDamage(1);
@@ -118,13 +133,11 @@ namespace Game
         public void TakeDamage(int damage)
         {
             curHp -= damage;
-
             if (!healthbar.gameObject.activeSelf)
             {
                 healthbar.gameObject.SetActive(true);
             }
             healthbar.UpdateHealthBar(curHp);
-
             if (curHp <= 0)
             {     
                 _ai.character.Kill();
@@ -133,11 +146,30 @@ namespace Game
                 healthbar.gameObject.SetActive(false);
             }
         }
+
+        void PlayerLose(Event_Player_Die e)
+        {
+            GameStop();
+        }
+        void PlayerWin(Event_LightOff_Win e)
+        {
+            GameStop();
+        }
+        public void GameStop()
+        {
+            StopAllCoroutines();
+            _ai.Stop();
+            GetComponent<Character>().animator.SetAnimator(baseAnimator);
+            if (fov) 
+            {
+                Destroy(fov);
+            }
+        }
         public void Construct(int i)
         {
             _aim = transform.GetChild(0).gameObject;
 
-            if(i ==2 || i == 4 || i == 5 || i == 6)
+            if(i != 0)
             {
                 _aiType = LightOff_AIType.Target;
             }

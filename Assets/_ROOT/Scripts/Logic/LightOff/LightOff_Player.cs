@@ -15,6 +15,7 @@ namespace Game
         [SerializeField] UIHealthbar healthbar;
         [SerializeField] private LightOff_HandWeapon weapon;
         [SerializeField] private FieldOfView fov;
+        [SerializeField] RuntimeAnimatorController baseAnimator;
 
         private Weapon curType;
 
@@ -70,6 +71,7 @@ namespace Game
 
         public void DealDamage()
         {
+
             foreach (var ai in fov.visibleTargets)
             {
                 ai.GetComponent<LightOff_AI>().TakeDamage(dmg);
@@ -93,6 +95,12 @@ namespace Game
                 healthbar.gameObject.SetActive(false);
             }
         }
+
+        public void Win() 
+        {
+            _player.character.animator.SetAnimator(baseAnimator);
+        }
+
     }
     public enum Weapon {Empty, ConeRange, CircleRange, ForwardRange}
 }

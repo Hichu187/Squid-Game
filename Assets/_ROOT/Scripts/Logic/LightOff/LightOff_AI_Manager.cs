@@ -16,6 +16,8 @@ namespace Game
 
         private AI[] _ai;
 
+        [SerializeField] private RuntimeAnimatorController baseAnimator;
+
         private void Awake()
         {
             SpawnAI();
@@ -41,6 +43,8 @@ namespace Game
                 AI ai = _prefab.Create().GetComponent<AI>();
 
                 ai.gameObject.AddComponent<AIFollowWaypoint>();
+                
+                
 
                 Vector3 position = Random.insideUnitSphere * _randomPositionRadius;
 
@@ -51,6 +55,8 @@ namespace Game
                 Character character = ai.transform.GetChild(0).GetComponent<Character>();
 
                 character.gameObject.AddComponent<LightOff_AI>().Construct(i);
+
+                character.GetComponent<LightOff_AI>().baseAnimator = baseAnimator;
 
                 float idleDuration = _idleDurationRange.RandomWithin();
 

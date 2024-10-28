@@ -29,7 +29,7 @@ public class FieldOfView : MonoBehaviour
 
     private IEnumerator FOVRoutine()
     {
-        WaitForSeconds wait = new WaitForSeconds(0.25f);
+        WaitForSeconds wait = new WaitForSeconds(0.1f);
 
         while (true)
         {

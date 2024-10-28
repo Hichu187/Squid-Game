@@ -11,21 +11,25 @@ namespace Game
         private LightOff_Master _master;
 
         [Title("Reference")]
+        [SerializeField] LightOff_Player _player;
         [SerializeField] private float _gameTime;
         [SerializeField] private float _prepareTime;
-
         [SerializeField] GameObject _weaponBase;
+        [SerializeField] Light roomLight;
 
+        [SerializeField] float blackoutDuration = 5f;
+        [SerializeField] float blackoutInterval = 7f;
 
         private void Awake()
         {
             StaticBus<Event_LightOff_Constructed>.Subscribe(Constructed);
-
+            StaticBus<Event_Player_Die>.Subscribe(Lose);
         }
 
         private void OnDestroy()
         {
             StaticBus<Event_LightOff_Constructed>.Unsubscribe(Constructed);
+            StaticBus<Event_Player_Die>.Unsubscribe(Lose);
         }
         void Start()
         {
@@ -54,6 +58,7 @@ namespace Game
             _weaponBase.gameObject.SetActive(true);
 
             StartCoroutine(GameTimeCountDown());
+            StartCoroutine(BlackoutRoutine());
         }
         IEnumerator GameTimeCountDown()
         {
@@ -68,9 +73,23 @@ namespace Game
                 yield return null;
             }
             _master.gui.gameTime.PushMesseage($"Finish !!!").Forget();
-
+            StaticBus<Event_LightOff_Win>.Post(null);
             _master.SpawnResultView().Forget();
+
+            _player.Win();
         }
+        private IEnumerator BlackoutRoutine()
+        {
+            while (true)
+            {
+                roomLight.enabled = false;
+                yield return new WaitForSeconds(blackoutDuration);
+
+                roomLight.enabled = true;
+                yield return new WaitForSeconds(blackoutInterval);
+            }
+        }
+
         void Lose(Event_Player_Die e)
         {
             _master.SpawnResultLose().Forget();

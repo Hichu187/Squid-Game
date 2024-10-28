@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using LFramework;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ namespace Game
         private AIWaypoint _waypointPrevious;
         private AIWaypoint _waypoint;
         private AIWaypoint _waypointNext;
+
+        public bool isCombat = false;
+        
 
         private void Awake()
         {
@@ -28,6 +32,7 @@ namespace Game
 
         private void AI_EventChaseComplete()
         {
+            if (isCombat) return;
             if (_waypoint.next.IsNullOrEmpty())
             {
                 _ai.Idle();
@@ -45,6 +50,7 @@ namespace Game
 
         private void AI_EventIdleComplete()
         {
+            if (isCombat) return;
             // If AI not reached position
             if (!_waypoint.IsReached(_ai.character.transformCached.position))
             {
