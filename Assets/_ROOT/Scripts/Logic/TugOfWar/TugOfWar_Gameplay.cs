@@ -96,7 +96,6 @@ namespace Game
             }
             _master.gui.announcement.PushMesseage($"Game start !!!").Forget();
 
-            StaticBus<Event_RedLightGreenLight_GameStart>.Post(null);
             _isTugOfWar = true;
         }
         void TargetMoving()
