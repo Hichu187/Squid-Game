@@ -16,7 +16,7 @@ namespace Game
         public Lobby_GUI gui { get { return _gui; } }
         public Player player { get { return _player; } }
 
-        private void Start()
+/*        private void Start()
         {
             ConstructStart().Forget();
         }
@@ -28,7 +28,7 @@ namespace Game
             _gui = view.GetComponent<Lobby_GUI>();
 
             StaticBus<Event_Lobby_Constructed>.Post(null);
-        }
+        }*/
     }
 
 }

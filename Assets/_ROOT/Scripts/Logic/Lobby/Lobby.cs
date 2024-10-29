@@ -1,9 +1,10 @@
+using Cysharp.Threading.Tasks;
 using LFramework;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
 namespace Game
@@ -13,30 +14,29 @@ namespace Game
         private Lobby_Master _master;
 
         [Title("Reference")]
+        [SerializeField] Player _player;
+        [SerializeField] private AssetReferenceGameObject _viewGUI;
         [SerializeField] private float _prepareTime;
         [SerializeField] Transform _piggyPos;
-        private void Awake()
-        {
-            StaticBus<Event_Lobby_Constructed>.Subscribe(Constructed);
-        }
 
-        private void OnDestroy()
-        {
-            StaticBus<Event_Lobby_Constructed>.Subscribe(Constructed);
-        }
+        private Lobby_GUI _gui;
+
+
 
         private void Start()
         {
-            _master = GetComponent<Lobby_Master>();
+            ConstructStart().Forget();
         }
-
-        void Constructed(Event_Lobby_Constructed e)
+        private async UniTaskVoid ConstructStart()
         {
-            _master.player.cameraManager.cameraTutorial.Play(_piggyPos);
+            View view = await ViewHelper.PushAsync(_viewGUI);
+
+            _gui = view.GetComponent<Lobby_GUI>();
+
+            if (_piggyPos != null) _player.cameraManager.cameraTutorial.Play(_piggyPos);
 
             StartCoroutine(PrepareStart());
         }
-
         IEnumerator PrepareStart()
         {
             yield return new WaitForSeconds(5);
@@ -45,14 +45,14 @@ namespace Game
 
             while (currentTime > 0)
             {
-                _master.gui.announcement.PushMesseage($"The game will be selected in {Mathf.CeilToInt(currentTime)} second").Forget();
+                _gui.announcement.PushMesseage($"The game will be selected in {Mathf.CeilToInt(currentTime)} second").Forget();
 
                 currentTime -= Time.deltaTime;
 
                 yield return null;
             }
 
-            _master.gui.announcement.PushMesseage($"Game start !!!").Forget();
+            _gui.announcement.PushMesseage($"Game start !!!").Forget();
 
             yield return new WaitForSeconds(1);
 

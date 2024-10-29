@@ -38,7 +38,9 @@ namespace Game
         {
             AdsHelper.ShowInterstitial(_adsPlacementContinue);
 
-            _onContinue?.Invoke();
+            //_onContinue?.Invoke();
+
+            SceneLoaderHelper.Load(GameConstants.sceneLobby);
         }
 
         private void BtnHome_OnClick()
