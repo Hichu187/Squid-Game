@@ -13,6 +13,7 @@ namespace Game
 
         [Title("Reference")]
         [SerializeField] private Transform _target;
+        [SerializeField] RLGL_Player _player;
 
         [Title("Config")]
         [SerializeField] private float _prepareTime;
@@ -27,11 +28,13 @@ namespace Game
         private void Awake()
         {
             StaticBus<Event_RedLightGreenLight_Constructed>.Subscribe(RedLightGreenLightInit);
+            StaticBus<Event_Player_Die>.Subscribe(Lose);
         }
 
         private void OnDestroy()
         {
             StaticBus<Event_RedLightGreenLight_Constructed>.Unsubscribe(RedLightGreenLightInit);
+            StaticBus<Event_Player_Die>.Unsubscribe(Lose);
         }
         private void Start()
         {
@@ -42,11 +45,11 @@ namespace Game
         {
             if (!isGreenLight)
             {
-                float dis = Vector3.Distance(_playerStopPosition, _master.player.character.transform.position);
-                if(dis>0.5f && !_master.player.GetComponent<RLGL_Player>().isTarget)
+                float dis = Vector3.Distance(_playerStopPosition, _player.transform.position);
+                if(dis>0.5f && !_player.isTarget)
                 {
-                    _master.player.GetComponent<RLGL_Player>().isTarget = true;
-                    _master.player.GetComponent<RLGL_Player>().GetTarget();
+                    _player.isTarget = true;
+                    _player.GetTarget();
                 }
             }
         }
@@ -92,6 +95,8 @@ namespace Game
                 yield return null;
             }
             _master.gui.gameTime.PushMesseage($"Finish !!!").Forget();
+
+            ResultCheck();
         }
         IEnumerator LightSwitching()
         {
@@ -112,9 +117,30 @@ namespace Game
             }
         }
 
-        void Lose()
+        void ResultCheck()
         {
+            //Player
+            if (_player.isCompleted)
+            {
+                _master.SpawnResultView().Forget();
+            }
+            else
+            {
+                _master.player.character.Kill();
+            }
 
+            //AI
+            RLGL_AI_Manager ais = GetComponent<RLGL_AI_Manager>();
+            foreach(var ai in ais._ai)
+            {
+                ai.Stop();
+            }
+        }
+
+        void Lose(Event_Player_Die e)
+        {
+            _master.Lose().Forget();
+            StopAllCoroutines();
         }
     }
 }

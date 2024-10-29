@@ -7,6 +7,7 @@ TagManager:
   - Kill
   - Ground
   - Tool
+  - Goal
   layers:
   - Default
   - TransparentFX

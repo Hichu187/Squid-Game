@@ -14,7 +14,7 @@ namespace Game
         [SerializeField] private Vector2 _idleDurationRange = new Vector2(0f, 0.5f);
         [SerializeField] private float _randomPositionRadius;
 
-        private AI[] _ai;
+        public AI[] _ai;
         private void Start()
         {
             SpawnAI();
@@ -34,9 +34,7 @@ namespace Game
 
                 ai.character.Revive(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
 
-                //ai.gameObject.AddComponent<ColorBlock_AI_Character>().Construct(i * 2);
-
-                ai.gameObject.AddComponent<RLGL_AI>().Construct(i * 2);
+                ai.character.gameObject.AddComponent<RLGL_AI>().Construct(i * 2);
 
 
                 float idleDuration = _idleDurationRange.RandomWithin();

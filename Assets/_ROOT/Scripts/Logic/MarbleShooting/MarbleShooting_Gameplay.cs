@@ -199,6 +199,8 @@ namespace Game
                 _master.player.cameraManager.EnableCamera();
                 _master.player.gui.gameObject.SetActive(true);
                 _master.gui.announcement.PushMesseage($"You Win!!!").Forget();
+                _master.SpawnResultView().Forget();
+                DataMainGame.levelIndex++;
             }
             else if( playerCount < otherCount)
             {

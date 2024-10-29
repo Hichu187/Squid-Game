@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id">
-  <string name="gcm_defaultSenderId" translatable="false">926485008604</string>
-  <string name="google_storage_bucket" translatable="false">parkour-master---obby-games.appspot.com</string>
-  <string name="project_id" translatable="false">parkour-master---obby-games</string>
-  <string name="google_api_key" translatable="false">AIzaSyCEOQJDOi7Hez9XOJxs7qBrTO6oODHir0g</string>
-  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCEOQJDOi7Hez9XOJxs7qBrTO6oODHir0g</string>
-  <string name="google_app_id" translatable="false">1:926485008604:android:86f7916883be82b3d06419</string>
-</resources>

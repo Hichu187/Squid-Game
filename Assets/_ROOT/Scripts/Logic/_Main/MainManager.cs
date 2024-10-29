@@ -10,6 +10,8 @@ namespace Game
         public void PlayChallenge()
         {
             SceneManager.LoadScene(1);
+            DataMainGame.levelIndex = 0;
+            DataMainGame.isChallenge = true;
         }
     }
 }

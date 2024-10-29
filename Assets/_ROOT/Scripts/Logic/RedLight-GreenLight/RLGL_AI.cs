@@ -16,7 +16,7 @@ namespace Game
 
         private void Awake()
         {
-            _ai = GetComponent<AI>();
+            _ai = transform.parent.GetComponent<AI>();
 
             StaticBus<Event_RedLightGreenLight_GreenLight>.Subscribe(GreenLight);
             StaticBus<Event_RedLightGreenLight_RedLight>.Subscribe(RedLight);
@@ -32,7 +32,7 @@ namespace Game
         {
             await UniTask.WaitForSeconds(Random.Range(0.5f, 1.5f), cancellationToken: this.GetCancellationTokenOnDestroy());
 
-            _ai.Chase(_ai.character.transform.position + new Vector3(Random.Range(-5, 5), 0, Random.Range(-5,2)));
+            _ai.Chase(transform.position + new Vector3(Random.Range(-5, 5), 0, Random.Range(-5,2)));
 
             _isSurvive = true;
         }
@@ -40,7 +40,7 @@ namespace Game
         private void GreenLight(Event_RedLightGreenLight_GreenLight e)
         {
             if (_goal) return;
-            _ai.Chase(_ai.character.transform.position + new Vector3(Random.Range(-3, 3), 0, Random.Range(17, 30)));
+            _ai.Chase(transform.position + new Vector3(Random.Range(-3, 3), 0, Random.Range(17, 30)));
         }
 
         private void RedLight(Event_RedLightGreenLight_RedLight e)
@@ -73,7 +73,7 @@ namespace Game
         {
             _surviveCount = surviveCount;
 
-            _aim = _ai.character.transform.GetChild(0).GetChild(0).gameObject;
+            _aim = transform.GetChild(0).GetChild(0).gameObject;
         }
     }
 }

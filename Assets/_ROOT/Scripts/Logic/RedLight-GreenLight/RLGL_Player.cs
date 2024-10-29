@@ -10,6 +10,7 @@ namespace Game
         [SerializeField] GameObject _target;
         public bool isTarget;
 
+        public bool isCompleted = false;
         public void GetTarget()
         {
             _target.SetActive(true);
@@ -20,8 +21,18 @@ namespace Game
         {
             yield return new WaitForSeconds(1.5f);
 
-            GetComponent<Player>().character.Kill();
+            GetComponent<Character>().Kill();
             _target.SetActive(false);
+
+            StaticBus<Event_Player_Die>.Post(null);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Goal"))
+            {
+                isCompleted = true;
+            }
         }
     }
 }

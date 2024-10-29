@@ -21,8 +21,6 @@ namespace Game
 
         private Lobby_GUI _gui;
 
-
-
         private void Start()
         {
             ConstructStart().Forget();
@@ -45,7 +43,7 @@ namespace Game
 
             while (currentTime > 0)
             {
-                _gui.announcement.PushMesseage($"The game will be selected in {Mathf.CeilToInt(currentTime)} second").Forget();
+                _gui.announcement.PushMesseage($"Game will be selected in {Mathf.CeilToInt(currentTime)} second").Forget();
 
                 currentTime -= Time.deltaTime;
 
@@ -56,7 +54,7 @@ namespace Game
 
             yield return new WaitForSeconds(1);
 
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(DataMainGame.levelIndex +2);
         }
     }
 }

@@ -168,6 +168,8 @@ namespace Game
             _master.player.character.animator.SetVelocityZ(0);
             _master.player.character.animator.PlayWin();
             _master.SpawnResultView().Forget();
+
+            DataMainGame.levelIndex++;
         }
         void SetFalling()
         {

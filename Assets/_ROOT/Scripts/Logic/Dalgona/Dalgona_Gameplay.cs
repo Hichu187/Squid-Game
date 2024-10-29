@@ -195,8 +195,9 @@ namespace Game
             _isStop = true;
             _isWin = true;
             StopAllCoroutines();
-
             StartCoroutine(WinSetup());
+
+            DataMainGame.levelIndex++;
         }
         
         IEnumerator WinSetup()

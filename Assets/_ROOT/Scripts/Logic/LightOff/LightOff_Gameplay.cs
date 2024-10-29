@@ -72,11 +72,12 @@ namespace Game
 
                 yield return null;
             }
+
             _master.gui.gameTime.PushMesseage($"Finish !!!").Forget();
             StaticBus<Event_LightOff_Win>.Post(null);
             _master.SpawnResultView().Forget();
-
             _player.Win();
+            DataMainGame.levelIndex++;
         }
         private IEnumerator BlackoutRoutine()
         {

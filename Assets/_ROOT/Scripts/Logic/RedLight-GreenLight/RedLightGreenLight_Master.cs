@@ -45,14 +45,8 @@ namespace Game
 
         }
 
-        private async UniTask Lose()
+        public async UniTaskVoid Lose()
         {
-            if (_isFinished)
-                return;
-
-            //StaticBus<Event_ParkourRace_Gameplay_End>.Post(null);
-
-            _isFinished = true;
 
             Player.Instance.character.SetEnabled(false);
 

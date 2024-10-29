@@ -132,6 +132,8 @@ namespace Game
             if (_master.player.GetComponent<GlassBridge_Player>().isComplete)
             {
                 _master.SpawnResultView().Forget();
+
+                DataMainGame.levelIndex++;
             }
             else
             {
