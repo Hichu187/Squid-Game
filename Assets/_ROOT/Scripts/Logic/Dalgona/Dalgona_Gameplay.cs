@@ -95,6 +95,7 @@ namespace Game
         void SetupOption()
         {
             if (option == 0) option = Random.Range(1, 5);
+
         }
 
         void OptionPrepare()
@@ -102,6 +103,8 @@ namespace Game
             _gameplay.gameObject.SetActive(true);
             _master.player.character.gameObject.SetActive(false);
             _isStart = true;
+
+            GameObject c = Instantiate(candy[Random.Range(0, candy.Count)], _gameplay.transform);
             StartCoroutine(GameTimeCountDown());
         }
         IEnumerator GameTimeCountDown()
