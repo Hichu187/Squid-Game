@@ -4198,8 +4198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candy:
-  - {fileID: 6716798717481169337, guid: ef1c8c6e9b3df864995c824033e006f4, type: 3}
   - {fileID: 3242398008311945457, guid: 503fc8a42286d0f4a8d46c83344b9d2a, type: 3}
+  - {fileID: 6716798717481169337, guid: ef1c8c6e9b3df864995c824033e006f4, type: 3}
   _gameTime: 60
   _prepareTime: 10
   option: 0
@@ -7749,11 +7749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5821047662712968426, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.012967246
+      value: -0.01296728
       objectReference: {fileID: 0}
     - target: {fileID: 5821047662712968426, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0021042943
+      value: 0.0021042996
       objectReference: {fileID: 0}
     - target: {fileID: 5821047663083804989, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
       propertyPath: m_LocalRotation.w
