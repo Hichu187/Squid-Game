@@ -11,6 +11,7 @@ namespace Game
         private Dalgona_Master _master;
 
         [Title("Reference")]
+        public List<GameObject> candy;
         [SerializeField] private float _gameTime;
         [SerializeField] private float _prepareTime;
 

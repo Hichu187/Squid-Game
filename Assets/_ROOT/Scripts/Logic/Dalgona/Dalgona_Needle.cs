@@ -9,10 +9,5 @@ namespace Game
         private Vector3 offset;
         private bool isDragging = false;
         [SerializeField] private Camera mainCamera;
-
-        void Update()
-        {
-
-        }
     }
 }

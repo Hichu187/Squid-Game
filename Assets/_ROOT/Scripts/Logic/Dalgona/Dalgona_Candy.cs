@@ -16,6 +16,9 @@ namespace Game
             if (other.CompareTag("Tool"))
             {
                 hitCount++;
+
+                // Vibratation
+
                 if(hitCount == 3)
                 {
                     this.GetComponent<Renderer>().material.color = Color.red;
