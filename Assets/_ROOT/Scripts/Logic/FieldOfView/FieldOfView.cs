@@ -22,7 +22,6 @@ public class FieldOfView : MonoBehaviour
     public List<Transform> visibleTargets = new List<Transform>();
     private void Start()
     {
-        //playerRef = GameObject.FindGameObjectWithTag("Player");
         _char = GetComponent<Character>();
         StartCoroutine(FOVRoutine());
     }

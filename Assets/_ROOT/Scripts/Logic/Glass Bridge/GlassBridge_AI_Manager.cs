@@ -46,8 +46,7 @@ namespace Game
                 position.z = 0f;
 
                 ai.character.Revive(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
-
-                
+          
                 ai.gameObject.AddComponent<GlassBridge_AI>().Construct(i);
 
                 float idleDuration = _idleDurationRange.RandomWithin();

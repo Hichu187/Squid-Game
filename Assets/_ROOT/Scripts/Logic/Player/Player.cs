@@ -11,13 +11,15 @@ namespace Game
         [SerializeField] private CameraManager _cameraManager;
         [SerializeField] private PlayerGUI _gui;
         [SerializeField] private PlayerControl _control;
-
+        [SerializeField] private GameObject _aim;
         protected override bool _dontDestroyOnLoad { get { return false; } }
 
         public Character character { get { return _character; } }
         public CameraManager cameraManager { get { return _cameraManager; } }
         public PlayerGUI gui { get { return _gui; } }
         public PlayerControl control { get { return _control; } }
+
+        public GameObject aim { get { return _aim; } }
 
         protected override void Awake()
         {

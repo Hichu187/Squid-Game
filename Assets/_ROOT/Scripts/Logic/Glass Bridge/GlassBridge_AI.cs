@@ -22,7 +22,6 @@ namespace Game
         {
             _ai = GetComponent<AI>();
             _gameplay = FindObjectOfType<GlassBridge_Gameplay>();
-            _ai.character.GetComponent<CharacterFallDetector>().enabled = false;
             _isSurvive = true;
         }
 
@@ -86,7 +85,7 @@ namespace Game
                 }
                 _step++;
 
-                float waitTime = Random.Range(1f, 4f);
+                float waitTime = Random.Range(3f, 5f);
                 yield return new WaitForSeconds(waitTime);
             }
         }

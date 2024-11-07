@@ -7,9 +7,9 @@ namespace Game
 {
     public class RLGL_Player : MonoBehaviour
     {
+        [SerializeField] RedLightGreenLight_Gameplay gameplay;
         [SerializeField] GameObject _target;
         public bool isTarget;
-
         public bool isCompleted = false;
         public void GetTarget()
         {
@@ -31,7 +31,11 @@ namespace Game
         {
             if (other.CompareTag("Goal"))
             {
-                isCompleted = true;
+                if(!isCompleted)
+                {
+                    isCompleted = true;
+                    gameplay.ResultCheck();
+                }
             }
         }
     }

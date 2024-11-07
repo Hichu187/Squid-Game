@@ -33,7 +33,15 @@ namespace Game
 
             if (_piggyPos != null) _player.cameraManager.cameraTutorial.Play(_piggyPos);
 
-            StartCoroutine(PrepareStart());
+            if(DataMainGame.levelIndex >= 6)
+            {
+                StartCoroutine(FinalWin());
+            }
+            else
+            {
+                StartCoroutine(PrepareStart());
+            }
+
         }
         IEnumerator PrepareStart()
         {
@@ -54,7 +62,30 @@ namespace Game
 
             yield return new WaitForSeconds(1);
 
-            SceneManager.LoadScene(DataMainGame.levelIndex +2);
+
+            SceneLoaderHelper.Load(DataMainGame.levelIndex + 2);
+        }
+
+        IEnumerator FinalWin()
+        {
+            yield return new WaitForSeconds(5);
+
+            float currentTime = _prepareTime-2;
+
+            while (currentTime > 0)
+            {
+                _gui.announcement.PushMesseage($"YOU WIN").Forget();
+
+                currentTime -= Time.deltaTime;
+
+                yield return null;
+            }
+
+            _player.character.animator.PlayWin();
+
+            yield return new WaitForSeconds(1);
+
+            SceneLoaderHelper.Load(0);
         }
     }
 }

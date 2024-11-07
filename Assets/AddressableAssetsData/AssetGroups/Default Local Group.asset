@@ -237,6 +237,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 404f97fe48ec4304b9e8177e89790679
+    m_Address: Assets/_ROOT/Prefabs/Settings/SettingsView.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f7f4b9485ca0b47b996c07ad9ee8f5
+    m_Address: Assets/_ROOT/Prefabs/Squid/Squid_GUI_View.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a6464dacd8be1d947956e95c20b63ea1, type: 2}
   m_SchemaSet:

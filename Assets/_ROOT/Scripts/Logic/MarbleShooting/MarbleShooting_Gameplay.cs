@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Game.CharacterRagdoll;
 
 namespace Game
 {
@@ -24,6 +25,9 @@ namespace Game
         [SerializeField] Rigidbody _curBall;
         [SerializeField] float throwForceMultiplier = 10f;
         [SerializeField] float arcAngle = 30f;
+        [SerializeField] Material material;
+        [SerializeField] List<MarbleShooting_Marble> _pmarbles;
+        [SerializeField] List<MarbleShooting_Marble> _emarbles;
 
         private Vector2 startTouchPosition;
         private Vector2 endTouchPosition;
@@ -74,6 +78,8 @@ namespace Game
             isStart = true;
 
             StartCoroutine(PlayerPhaseSetUp(0));
+
+            _master.gui.count.gameObject.SetActive(true);
         }
         void ChangePhase(Event_MarbleShooting_ChangePhase e)
         {
@@ -106,6 +112,8 @@ namespace Game
             GameObject marble = Instantiate(_marblePrefab, _preparePos);
             _curBall = marble.GetComponent<Rigidbody>();
             _curBall.GetComponent<MarbleShooting_Marble>().isPlayer = true;
+
+            _pmarbles.Add(_curBall.GetComponent<MarbleShooting_Marble>());
         }
         IEnumerator OtherPlayerTurn()
         {
@@ -114,9 +122,10 @@ namespace Game
 
             GameObject marble = Instantiate(_marblePrefab, _otherPos);
             _curBall = marble.GetComponent<Rigidbody>();
-
+            marble.GetComponent<Renderer>().material = material;
             _curBall.GetComponent<MarbleShooting_Marble>().isPlayer = false;
-  
+            _emarbles.Add(_curBall.GetComponent<MarbleShooting_Marble>());
+
             float swipeDistance = 2f;
 
             float hitChance = 0f;
@@ -152,8 +161,12 @@ namespace Game
 
             _curBall.isKinematic = false;
             _curBall.AddForce(throwDirection * swipeDistance * throwForceMultiplier*Random.Range(300,375), ForceMode.Impulse);
+
+            //
+            _master.gui.count.otherScore[5 - wave].color = Color.gray;
             wave--;
             StartCoroutine(marbleDelay());
+
         }
         void ThrowObject()
         {
@@ -177,6 +190,8 @@ namespace Game
                 _curBall.isKinematic = false;
                 _curBall.AddForce(throwDirection * swipeDistance * throwForceMultiplier, ForceMode.Impulse);
 
+                //
+                _master.gui.count.playerScore[5 - wave].color = Color.gray;
                 StartCoroutine(marbleDelay());
             }
         }
@@ -188,8 +203,16 @@ namespace Game
         }
         private void Count(Event_MarbleShooting_Count e)
         {
-            if(e._isPlayer) playerCount++;
-            else otherCount++;
+            if (e._isPlayer)
+            {
+                _master.gui.count.playerScore[_pmarbles.IndexOf(e._marble)].color = Color.green;
+                playerCount++;
+            }
+            else
+            {
+                _master.gui.count.otherScore[_emarbles.IndexOf(e._marble)].color = Color.green;
+                otherCount++;
+            }
         }
         private void GameResult()
         {
@@ -208,6 +231,9 @@ namespace Game
                 _master.player.cameraManager.EnableCamera();
                 _master.player.GetComponent<MarbleShooting_Player>().GetTarget();
                 _master.gui.announcement.PushMesseage($"You Lose!!!").Forget();
+
+                StartCoroutine(Lose());
+
             }
             else
             {
@@ -217,6 +243,12 @@ namespace Game
                 ResetBattle();
             }
         }
+
+        IEnumerator Lose()
+        {
+            yield return new WaitForSeconds(2f);
+            _master.SpawnResultLose().Forget();
+        }
         void ResetBattle()
         {
             wave = 5;
@@ -224,6 +256,19 @@ namespace Game
             otherCount = 0;
 
             isPlayerTurn = true;
+
+            _pmarbles.Clear();
+            _emarbles.Clear();
+
+            foreach (Transform child in _preparePos)
+            {
+                Destroy(child.gameObject);
+            }
+
+            foreach (Transform child in _otherPos)
+            {
+                Destroy(child.gameObject);
+            }
 
             StartCoroutine(PlayerPhaseSetUp(2));
         }

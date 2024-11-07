@@ -49,7 +49,6 @@ namespace Game
 
         void Constructed(Event_Dalgona_Constructed e)
         {
-
             StartCoroutine(PrepareStart());
         }
 
@@ -100,6 +99,7 @@ namespace Game
         void OptionPrepare()
         {
             _gameplay.gameObject.SetActive(true);
+            _master.player.character.gameObject.SetActive(false);
             _isStart = true;
             StartCoroutine(GameTimeCountDown());
         }
@@ -173,14 +173,14 @@ namespace Game
         IEnumerator LoseSetup()
         {
             yield return new WaitForSeconds(2);
-
+            _gameplay.gameObject.SetActive(false);
             _master.gui.Fade();
-
+            _master.player.character.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.5f);
 
             _master.player.gui.gameObject.SetActive(true);
-            _prepare.gameObject.SetActive(true);
-            _gameplay.gameObject.SetActive(false);
+            //_prepare.gameObject.SetActive(true);
+
 
             GetComponent<Dalgona_Camera>().ResetCamera();
 
@@ -202,7 +202,7 @@ namespace Game
         
         IEnumerator WinSetup()
         {
-            yield return new WaitForSeconds(2);
+/*            yield return new WaitForSeconds(2);
 
             _master.gui.Fade();
 
@@ -212,9 +212,9 @@ namespace Game
             _prepare.gameObject.SetActive(true);
             _gameplay.gameObject.SetActive(false);
 
-            GetComponent<Dalgona_Camera>().ResetCamera();
+            GetComponent<Dalgona_Camera>().ResetCamera();*/
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2f);
 
             _master.SpawnResultView().Forget();
         }

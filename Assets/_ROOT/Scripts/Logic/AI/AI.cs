@@ -20,6 +20,8 @@ namespace Game
         [Title("Reference")]
         [SerializeField] private Character _character;
         [SerializeField] private Transform _characterFoward;
+        [SerializeField] private GameObject _aim;
+        [SerializeField] private GameObject _health;
 
         [Title("Config")]
         [SerializeField] private float _turnSpeed = 120f;
@@ -37,6 +39,8 @@ namespace Game
         private Transform _targetTransform;
         private Vector3 _targetPosition;
 
+        public GameObject aim { get { return _aim; } }
+        public GameObject health { get { return _health; } }
         public Character character { get { return _character; } }
 
         public Transform characterFoward { get { return _characterFoward; } }

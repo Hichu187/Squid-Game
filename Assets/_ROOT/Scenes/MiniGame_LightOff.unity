@@ -652,7 +652,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &138462891
 Transform:
   m_ObjectHideFlags: 0
@@ -1365,7 +1365,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &480929056
 Transform:
   m_ObjectHideFlags: 0
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 8125306918014190504, guid: 47682e7620ee29b41a05cc0e657ae15d, type: 3}
-  count: 10
+  count: 15
   _idleDurationRange: {x: 2, y: 0.5}
   _randomPositionRadius: 10
   baseAnimator: {fileID: 9100000, guid: cfab00cf2c727fc4abb57003fd5d82ed, type: 2}
@@ -2222,7 +2222,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &911379590
 Transform:
   m_ObjectHideFlags: 0
@@ -2448,7 +2448,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &987844660
 Transform:
   m_ObjectHideFlags: 0
@@ -4259,6 +4259,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559647238}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1593517630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4850178664958919560, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
+  m_PrefabInstance: {fileID: 1783203570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1613637890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4670,6 +4675,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.057946444
       objectReference: {fileID: 0}
+    - target: {fileID: 5989739437453199806, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
+      propertyPath: _aim
+      value: 
+      objectReference: {fileID: 1593517630}
     - target: {fileID: 6028633132409729539, guid: eeb3ad273d26ffc4b87fa1cb4a6fb207, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.2489724

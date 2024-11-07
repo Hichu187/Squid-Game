@@ -41,7 +41,6 @@ namespace Game
             curType = type;
             SetRange();
         }
-
         public void SetRange()
         {
             FieldOfView f = _player.character.GetComponent<FieldOfView>();
@@ -61,11 +60,6 @@ namespace Game
                     f.angle = 45f;
                     break;
             }
-        }
-        public void Attack()
-        {
-            _player.character.animator.PlayBlock();
-
         }
         public void DealDamage()
         {

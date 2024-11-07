@@ -9,11 +9,8 @@ namespace Game
 {
     public class LightSwitch : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _lightText;
-        [SerializeField] private Image _color;
-
-        public TextMeshProUGUI lightText { get { return _lightText; } }
-        public Image color { get { return _color; } }
+        public TextMeshProUGUI lightText;
+        public Image color;
 
         private void Awake()
         {
@@ -32,15 +29,13 @@ namespace Game
 
         void GreenSwitch(Event_RedLightGreenLight_GreenLight e)
         {
-            _lightText.text = "Green Light";
-            _color.color = Color.green;
+            lightText.text = "Green Light";
+            if(color != null) color.color = Color.green;
         }
         void RedSwitch(Event_RedLightGreenLight_RedLight e)
         {
-            _lightText.text = "Red Light";
-            _color.color = Color.red;
+            lightText.text = "Red Light";
+            if (color != null) color.color = Color.red;
         }
-
-
     }
 }

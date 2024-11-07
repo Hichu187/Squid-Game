@@ -32,8 +32,7 @@ namespace Game
         {
             _ai = transform.parent.GetComponent<AI>();
 
-            healthbar = transform.GetComponentInChildren<UIHealthbar>();
-            healthbar.gameObject.SetActive(false);
+            healthbar = _ai.health.GetComponent<UIHealthbar>();
             healthbar.InitHealthBar(hp);
             curHp = hp;
 
@@ -166,9 +165,9 @@ namespace Game
         }
         public void Construct(int i)
         {
-            _aim = transform.GetChild(0).gameObject;
+            _aim = _ai.aim;
 
-            if(i != 0)
+            if(i%3 == 0)
             {
                 _aiType = LightOff_AIType.Target;
             }

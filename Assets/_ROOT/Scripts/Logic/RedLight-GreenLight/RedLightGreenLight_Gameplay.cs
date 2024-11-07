@@ -46,7 +46,7 @@ namespace Game
             if (!isGreenLight)
             {
                 float dis = Vector3.Distance(_playerStopPosition, _player.transform.position);
-                if(dis>0.5f && !_player.isTarget)
+                if(dis > 0.5f && !_player.isTarget && !_player.isCompleted)
                 {
                     _player.isTarget = true;
                     _player.GetTarget();
@@ -61,6 +61,8 @@ namespace Game
 
         IEnumerator PrepareStart()
         {
+            if (_master == null) { _master = GetComponent<RedLightGreenLight_Master>(); }
+
             float currentTime = _prepareTime;
 
             while (currentTime > 0)
@@ -117,12 +119,13 @@ namespace Game
             }
         }
 
-        void ResultCheck()
+        public void ResultCheck()
         {
-            //Player
             if (_player.isCompleted)
             {
                 _master.SpawnResultView().Forget();
+                StopAllCoroutines();
+                DataMainGame.levelIndex++;
             }
             else
             {

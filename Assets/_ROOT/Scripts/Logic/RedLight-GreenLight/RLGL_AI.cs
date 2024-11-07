@@ -62,16 +62,33 @@ namespace Game
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Goal"))
+            {
+                _goal = true;
+
+                _ai.gameObject.AddComponent<AIFollowWaypoint>();
+            }
+        }
+
         IEnumerator Dead()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(Random.Range(1, 2.5f));
             _ai.character.Kill();
             _aim.gameObject.SetActive(false);
         }
 
         public void Construct(int surviveCount)
         {
-            _surviveCount = surviveCount;
+            if(surviveCount < 10)
+            {
+                _surviveCount = Random.Range(0,3);
+            }
+            else
+            {
+                _surviveCount = surviveCount;
+            }
 
             _aim = transform.GetChild(0).GetChild(0).gameObject;
         }

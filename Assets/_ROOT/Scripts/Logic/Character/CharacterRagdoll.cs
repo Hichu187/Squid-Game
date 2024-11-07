@@ -59,6 +59,7 @@ namespace Game
 
         public void DealDamage()
         {
+            //Light OFF
             if (transform.GetComponentInParent<LightOff_Player>())
             {
                 transform.GetComponentInParent<LightOff_Player>().DealDamage();
@@ -67,6 +68,16 @@ namespace Game
             {
                 transform.GetComponentInParent<LightOff_AI>().DealDamage();
             }
+
+            if (transform.GetComponentInParent<Squid_Player>())
+            {
+                transform.GetComponentInParent<Squid_Player>().DealDamage();
+            }
+            else if (transform.GetComponentInParent<Squid_AI>())
+            {
+                transform.GetComponentInParent<Squid_AI>().DealDamage();
+            }
+
         }
     }
 }

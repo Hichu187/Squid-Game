@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _character: {fileID: 984592025756716264}
   _characterFoward: {fileID: 821911762808920830}
+  _aim: {fileID: 5627179020071568103}
+  _health: {fileID: 8890540626517345712}
   _turnSpeed: 180
   _idleDurationRange: {x: 0.5, y: 1}
 --- !u!114 &-7116287330734964668
@@ -176,3 +178,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c831138412d62c648a6059725e094a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5627179020071568103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5667281582288929603, guid: 528b7b94e0950a34c9ffc976b3089539, type: 3}
+  m_PrefabInstance: {fileID: 50097132595020196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8890540626517345712 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8921754604663292948, guid: 528b7b94e0950a34c9ffc976b3089539, type: 3}
+  m_PrefabInstance: {fileID: 50097132595020196}
+  m_PrefabAsset: {fileID: 0}

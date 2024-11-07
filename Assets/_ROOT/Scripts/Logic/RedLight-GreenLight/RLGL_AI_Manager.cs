@@ -34,7 +34,7 @@ namespace Game
 
                 ai.character.Revive(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
 
-                ai.character.gameObject.AddComponent<RLGL_AI>().Construct(i * 2);
+                ai.character.gameObject.AddComponent<RLGL_AI>().Construct(i);
 
 
                 float idleDuration = _idleDurationRange.RandomWithin();

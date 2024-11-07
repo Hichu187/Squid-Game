@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9750f810a6a142b45a631295b382c98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightText: {fileID: 2134389431175813135}
-  _color: {fileID: 6781964154718072737}
+  lightText: {fileID: 2134389431175813135}
+  color: {fileID: 6781964154718072737}
 --- !u!1 &2715032438772547924
 GameObject:
   m_ObjectHideFlags: 0

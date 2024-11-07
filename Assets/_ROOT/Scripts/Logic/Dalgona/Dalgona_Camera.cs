@@ -29,7 +29,7 @@ namespace Game
 
         void RoundStart(Event_Dalgona_RoundStart e)
         {
-            _camera.orthographic = true;
+            if(_camera != null)_camera.orthographic = true;
 
             _playerCam.Priority = 0;
         }

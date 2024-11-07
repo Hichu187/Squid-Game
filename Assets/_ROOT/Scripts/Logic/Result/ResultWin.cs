@@ -40,7 +40,15 @@ namespace Game
 
             //_onContinue?.Invoke();
 
-            SceneLoaderHelper.Load(GameConstants.sceneLobby);
+            if (DataMainGame.isChallenge)
+            {
+                SceneLoaderHelper.Load(GameConstants.sceneLobby);
+            }
+            else
+            {
+                SceneLoaderHelper.Load(GameConstants.sceneHome);
+            }
+
         }
 
         private void BtnHome_OnClick()

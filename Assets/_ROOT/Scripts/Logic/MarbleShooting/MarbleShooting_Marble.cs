@@ -37,7 +37,7 @@ namespace Game
         {
             if (other.CompareTag("Tool"))
             {
-                StaticBus<Event_MarbleShooting_Count>.Post(new Event_MarbleShooting_Count(isPlayer));
+                StaticBus<Event_MarbleShooting_Count>.Post(new Event_MarbleShooting_Count(isPlayer, this));
             }
         }
     }
