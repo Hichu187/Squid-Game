@@ -129,6 +129,17 @@ namespace Game
                 step.GetComponent<BridgePart>().Break();
             }
 
+            Result();
+        }
+
+        void Lose(Event_Player_Die e)
+        {
+            _master.SpawnResultLose().Forget();
+            StopAllCoroutines();
+        }
+
+        public void Result()
+        {
             if (_master.player.GetComponent<GlassBridge_Player>().isComplete)
             {
                 _master.SpawnResultView().Forget();
@@ -139,11 +150,6 @@ namespace Game
             {
                 _master.SpawnResultLose().Forget();
             }
-        }
-
-        void Lose(Event_Player_Die e)
-        {
-            _master.SpawnResultLose().Forget();
             StopAllCoroutines();
         }
         IEnumerator Hint()
