@@ -10,10 +10,7 @@ namespace Game
         {
             if (other.CompareTag("Player") && other.transform.parent.GetComponent<GlassBridge_Player>())
             {
-                if(other.transform.parent.GetComponent<GlassBridge_Player>().isComplete == false)
-                {
-                    other.transform.parent.GetComponent<GlassBridge_Player>().isComplete = true;
-                }
+                other.transform.parent.GetComponent<GlassBridge_Player>().PlayerGoal();
             }
         }
     }
