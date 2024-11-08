@@ -3496,7 +3496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &152722233
 Transform:
   m_ObjectHideFlags: 0
@@ -14713,7 +14713,7 @@ MonoBehaviour:
   _gameTime: 40
   _prepareTime: 5
   _weaponBase: {fileID: 132595469}
-  roomLight: {fileID: 578547371}
+  roomLight: {fileID: 999923807}
   blackoutDuration: 5
   blackoutInterval: 7
 --- !u!114 &696642927
