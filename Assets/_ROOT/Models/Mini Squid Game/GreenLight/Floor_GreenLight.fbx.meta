@@ -3,7 +3,12 @@ guid: 1d26eaaec7b09e649b1402992a93139a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tex_greenlight_floor
+    second: {fileID: 2100000, guid: bdef1315dac85e64bbfe8acf55702ef7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
