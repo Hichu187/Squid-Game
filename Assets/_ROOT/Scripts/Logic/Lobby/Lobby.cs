@@ -19,7 +19,7 @@ namespace Game
         [SerializeField] private float _prepareTime;
         [SerializeField] Transform _piggyPos;
         private Lobby_GUI _gui;
-
+        [SerializeField] GameObject coin;
         [Title("Config AI")]
         [SerializeField] private GameObject _prefab;
         public int count = 10;
@@ -48,6 +48,10 @@ namespace Game
             else
             {
                 StartCoroutine(PrepareStart());
+                if (DataMainGame.levelIndex > 0)
+                {
+                    coin.SetActive(true);
+                }
             }
             SpawnAI();
 
