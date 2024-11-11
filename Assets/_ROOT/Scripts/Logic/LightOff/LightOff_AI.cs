@@ -53,6 +53,7 @@ namespace Game
         public void TakeWeapon(RuntimeAnimatorController _animator, int id, Weapon type)
         {
             _ai.GetComponent<AIFollowWaypoint>().isCombat = true;
+            _ai.character.animator._animator.SetFloat("Weapon",(int)type);
             SetUpVision(_animator, id, type);
             ChangeBehavior();
         }
@@ -78,16 +79,20 @@ namespace Game
 
             switch (curType)
             {
-                case Weapon.ConeRange:
+                case Weapon.Slash:
                     fov.radius = 1.5f;
                     fov.angle = 120f;
                     break;
-                case Weapon.CircleRange:
+                case Weapon.Spin:
                     fov.radius = 1.5f;
                     fov.angle = 360;
                     break;
-                case Weapon.ForwardRange:
+                case Weapon.Stab:
                     fov.radius = 3;
+                    fov.angle = 120f;
+                    break;
+                case Weapon.Smash:
+                    fov.radius = 2.5f;
                     fov.angle = 120f;
                     break;
             }

@@ -32,10 +32,10 @@ namespace Game
 
         private void Character_EventBoosterUpdate()
         {
-            _skin.objJetPack.SetActive(_character.boosterJetpackEnabled);
+/*            _skin.objJetPack.SetActive(_character.boosterJetpackEnabled);
 
             for (int i = 0; i < _skin.objShoes.Length; i++)
-                _skin.objShoes[i].SetActive(_character.boosterShoesEnabled);
+                _skin.objShoes[i].SetActive(_character.boosterShoesEnabled);*/
         }
 
         public async UniTaskVoid LoadSkin(CharacterSkinConfig config)

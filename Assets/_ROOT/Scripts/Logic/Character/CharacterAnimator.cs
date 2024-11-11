@@ -42,7 +42,7 @@ namespace Game
 
         public void PlayBlock()
         {
-            animator.Play(HashDictionary.block, 1);
+            //animator.Play(HashDictionary.block, 1);
         }
 
         public void PlayWin()

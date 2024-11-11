@@ -15,6 +15,8 @@ namespace Game
 
         private void Start()
         {
+            id = Random.Range(0, weapon.Count);
+
             foreach (var w in weapon)
             {
                 w.gameObject.SetActive(false);

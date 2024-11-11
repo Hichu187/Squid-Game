@@ -15,7 +15,7 @@ MonoBehaviour:
   _thumbnail: {fileID: 21300000, guid: 23c1d57552608de45818a12b359b7a45, type: 3}
   _avatar: {fileID: 21300000, guid: 7260e96719c945a4190dc67279ce074e, type: 3}
   _prefab:
-    m_AssetGUID: 067475126421b4645bbb9840773748da
+    m_AssetGUID: 65578b620f7d9e74680b17c36487d56d
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

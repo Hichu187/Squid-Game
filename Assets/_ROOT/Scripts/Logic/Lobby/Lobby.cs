@@ -18,8 +18,16 @@ namespace Game
         [SerializeField] private AssetReferenceGameObject _viewGUI;
         [SerializeField] private float _prepareTime;
         [SerializeField] Transform _piggyPos;
-
         private Lobby_GUI _gui;
+
+        [Title("Config AI")]
+        [SerializeField] private GameObject _prefab;
+        public int count = 10;
+        [SerializeField] private Vector2 _idleDurationRange = new Vector2(0f, 0.5f);
+        [SerializeField] private float _randomPositionRadius;
+        [SerializeField] Transform gate;
+
+        private AI[] _ai;
 
         private void Start()
         {
@@ -41,6 +49,7 @@ namespace Game
             {
                 StartCoroutine(PrepareStart());
             }
+            SpawnAI();
 
         }
         IEnumerator PrepareStart()
@@ -51,19 +60,23 @@ namespace Game
 
             while (currentTime > 0)
             {
-                _gui.announcement.PushMesseage($"Game will be selected in {Mathf.CeilToInt(currentTime)} second").Forget();
+                _gui.announcement.PushMesseage($"Move to the gate to reach the next game !!!").Forget();
 
                 currentTime -= Time.deltaTime;
 
                 yield return null;
             }
 
-            _gui.announcement.PushMesseage($"Game start !!!").Forget();
+            _gui.announcement.PushMesseage($"Move to the gate to reach the next game !!!").Forget();
 
             yield return new WaitForSeconds(1);
 
+            foreach (var ai in _ai)
+            {
+                ai.Chase(gate);
+            }
 
-            SceneLoaderHelper.Load(DataMainGame.levelIndex + 2);
+
         }
 
         IEnumerator FinalWin()
@@ -86,6 +99,37 @@ namespace Game
             yield return new WaitForSeconds(1);
 
             SceneLoaderHelper.Load(0);
+        }
+
+        private void SpawnAI()
+        {
+            _ai = new AI[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                AI ai = _prefab.Create().GetComponent<AI>();
+
+                ai.gameObject.AddComponent<AIFollowWaypoint>();
+
+                Vector3 position = Random.insideUnitSphere * _randomPositionRadius;
+
+                position.y = 0f;
+
+                ai.character.Revive(position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
+
+                Character character = ai.transform.GetChild(0).GetComponent<Character>();
+
+                float idleDuration = _idleDurationRange.RandomWithin();
+
+                ai.SetIdleDurationRange(new Vector2(idleDuration, idleDuration));
+
+                _ai[i] = ai;
+            }
+        }
+
+        public void LoadGameScene()
+        {
+            SceneLoaderHelper.Load(DataMainGame.levelIndex + 2);
         }
     }
 }

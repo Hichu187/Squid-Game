@@ -247,6 +247,121 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc9f9525012f19f45a9bbb400961a8ce
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ece2c970bd36ba45aee0da94b962a3e
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb721cff78e5515488590bd869ad67bb
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_11.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65578b620f7d9e74680b17c36487d56d
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5f6a08775ab76347a245f53c1913e16
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 258a2520fdbec5846a092309169e43f1
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_17.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8f200a1e5fd71f498d93f89792f4bd9
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbcfaef07f3d2dc4bb7d85b34e76eed9
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_16.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 051e7c5d916ed2c4a81851b4327226f3
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1963959e8c0bd5c40b2cef7636e82b0c
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f0069858ad24e44f8529c758dfba555
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_14.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be544f9bbe3f9184aa9ec1f3f8fd9692
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d32b82ad93e674e888630801c0e533
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_15.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c47257dc771b1344aa37d528373503e
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85c00aaaa56c67e4b88c1ae01336972c
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 052c2cde50c584c4481103d4f8ca5c4d
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5e5913a9364fc847b92de54042a0790
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_13.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d05c190c94d7df409f1d2ce1bfb4148
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skin_6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 760ebf2a33bbab94285d3f524c545eb6
+    m_Address: Assets/_ROOT/Prefabs/Character/Char/Prefab_Skins.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41ec55488ae252b41afbb920ccc95318
+    m_Address: Assets/_ROOT/Prefabs/Character/Guar/Prefab_Guar_Rectangle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d67cb349a3e67f54e9251266c2d5663b
+    m_Address: Assets/_ROOT/Prefabs/Character/Guar/Prefab_Guar_Triangle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d694a14f74079345b82475ef37fe916
+    m_Address: Assets/_ROOT/Prefabs/Character/Guar/Prefab_Guar_Ellipse.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93d9269cabd5279499f7b1acf214b813
+    m_Address: Assets/_ROOT/Animations/Character/New Skin Upper Body.mask
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a6464dacd8be1d947956e95c20b63ea1, type: 2}
   m_SchemaSet:

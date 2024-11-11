@@ -26,6 +26,14 @@ namespace Game
             healthbar.InitHealthBar(curHp);
 
         }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0)){
+                _player.character.animator._animator.SetTrigger("Attack");
+            }
+        }
+
         public void SetAnimator(RuntimeAnimatorController _animator, int id, Weapon type)
         {
             if(weapon == null)
@@ -34,6 +42,8 @@ namespace Game
             }
 
             _player.character.animator.SetAnimator(_animator);
+
+            _player.character.animator._animator.SetFloat("Weapon", (int)type);
             weaponId = id;
 
             weapon.SetWeapon(id);
@@ -47,17 +57,21 @@ namespace Game
 
             switch (curType)
             {
-                case Weapon.ConeRange:
+                case Weapon.Slash:
                     f.radius = 1.5f;
                     f.angle = 120f;
                     break;
-                case Weapon.CircleRange:
+                case Weapon.Spin:
                     f.radius = 1.5f;
                     f.angle = 360;
                     break;
-                case Weapon.ForwardRange:
+                case Weapon.Stab:
                     f.radius = 3;
                     f.angle = 45f;
+                    break;
+                case Weapon.Smash:
+                    f.radius = 2.5f;
+                    f.angle = 120f;
                     break;
             }
         }
@@ -93,5 +107,5 @@ namespace Game
         }
 
     }
-    public enum Weapon {Empty, ConeRange, CircleRange, ForwardRange}
+    public enum Weapon {Empty, Slash, Spin, Stab, Smash}
 }

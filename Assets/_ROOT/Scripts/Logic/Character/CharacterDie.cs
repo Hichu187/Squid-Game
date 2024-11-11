@@ -45,14 +45,20 @@ namespace Game
 
         private void Character_EventDie()
         {
-            if (_objRoot != null)
-            {
-                _objRagdoll = _objRoot.Create(_objRoot.transform.parent);
+            /*            if (_objRoot != null)
+                        {
+                            _objRagdoll = _objRoot.Create(_objRoot.transform.parent);
 
-                _objRoot.SetActive(false);
+                            _objRoot.SetActive(false);
 
-                _objRagdoll.GetComponentInChildren<CharacterRagdoll>().Explode();
-            }
+                            _objRagdoll.GetComponentInChildren<CharacterRagdoll>().Explode();
+                        }*/
+
+            Character character = GetComponent<Character>();
+
+            int value = Random.Range(0, 5);
+            character.animator._animator.SetFloat("randomValue", value);
+            character.animator._animator.CrossFade("Die", 0);
 
             AudioManager.Play(_sfx).transformCached.position = transform.position;
         }
