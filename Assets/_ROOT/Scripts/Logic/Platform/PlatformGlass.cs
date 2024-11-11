@@ -8,7 +8,7 @@ namespace Game
     public class PlatformGlass : MonoBehaviour
     {
         [Title("Config")]
-        [SerializeField] private bool _isBreakable;
+        [SerializeField] public bool _isBreakable;
         [SerializeField] private GameObject _prefab;
 
         [Space]
@@ -36,7 +36,7 @@ namespace Game
             GenerateBreakable();
         }
 
-        private void GenerateBreakable()
+        public void GenerateBreakable()
         {
             if (_current == null)
             {
@@ -60,7 +60,7 @@ namespace Game
             _current.GetComponent<BoxCollider>().isTrigger = _isBreakable;
         }
 
-        private void OnGlassBreak()
+        public void OnGlassBreak()
         {
             AudioManager.Play(_sfxBroken.GetRandom());
 

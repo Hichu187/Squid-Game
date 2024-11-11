@@ -9,7 +9,7 @@ namespace Game
     {
         [SerializeField] bool isCollider;
         [SerializeField] Renderer renderer;
-
+        [SerializeField] PlatformGlass glass;
         [SerializeField] Material green;
         public bool isBreak;
 
@@ -18,6 +18,9 @@ namespace Game
         {
             isCollider = true;
             this.GetComponent<Collider>().isTrigger = false;
+
+            glass._isBreakable = false;
+            glass.GenerateBreakable();
         }
 
         public void Hint()
@@ -59,6 +62,10 @@ namespace Game
         {
             renderer.gameObject.SetActive(false);
             isBreak = true;
+            glass.OnGlassBreak();
+/*            PlatformBreakable breakable =  GetComponentInChildren<PlatformBreakable>();
+
+            breakable.onBreak += glass.on*/
         }
     }
 }
